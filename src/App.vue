@@ -1,18 +1,11 @@
 <template>
-  <main class="bg-slate-100">
-      <nav>
-        <RouterLink to="#/">Home</RouterLink>
-        <RouterLink to="#/features"></RouterLink>
-        <RouterLink to="#/pricing"></RouterLink>
-        <RouterLink to="#/contact"></RouterLink>
-      </nav>
-    <RouterView/>
-  </main>
+  <RouterView/>
 </template>
 
 
 <script setup lang="ts">
-import {RouterView} from 'vue-router';
+import {RouterLink, RouterView} from 'vue-router';
+import LandingLayout from './modulos/landing/layouts/LandingLayout.vue';
 
 </script>
 

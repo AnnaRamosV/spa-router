@@ -8,26 +8,38 @@ export const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: DomusPagina,
-        },
-
+            name: 'landing',
+            component: () => import('@/modulos/landing/layouts/LandingLayout.vue'),
+            children: [
+                {
+                    path: '/',
+                    name: 'home',
+                    component: DomusPagina,
+                },
+        
+                {
+                    path: '/features',
+                    name: 'features',
+                    component: () => import('@/modulos/landing/paginae/PeculiaridadesPagina.vue')
+                },
+        
+                {
+                    path: '/pricing',
+                    name: 'pricing',
+                    component: () => import('@/modulos/landing/paginae/PretiumPagina.vue')
+                },
+        
+                {
+                    path: '/contact',
+                    name: 'contact',
+                    component: () => import('@/modulos/landing/paginae/ContactusPagina.vue')
+                }
+            ]
+        }
+        ,
         {
-            path: '/features',
-            name: 'features',
-            component: () => import('@/modulos/landing/paginae/PeculiaridadesPagina.vue')
-        },
-
-        {
-            path: '/pricing',
-            name: 'pricing',
-            component: () => import('@/modulos/landing/paginae/PreciumPagina.vue')
-        },
-
-        {
-            path: '/contact',
-            name: 'contact',
-            component: () => import('@/modulos/landing/paginae/ContactusPagina.vue')
+            path: '/auth',
+            component: () => import('@/modulos/auth/paginae/LoginPagina.vue')
         }
     
     ]
