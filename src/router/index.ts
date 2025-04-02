@@ -1,3 +1,4 @@
+import estPermitirurGuard from '@/modulos/auth/guards/est-permititur.guard';
 import DomusPagina from '@/modulos/landing/paginae/DomusPagina.vue';
 import NotFound404 from '@/modulos/ordinarius/paginae/NotFound404.vue';
 
@@ -38,6 +39,9 @@ export const router = createRouter({
                 {
                     path: '/pokemon/:id',
                     name: 'pokemon',
+                    beforeEnter: [
+                        estPermitirurGuard
+                    ],
                     props: (route) => {
                         const id = Number(route.params.id) 
                         return isNaN(id) ? {id: 1} : {id}
