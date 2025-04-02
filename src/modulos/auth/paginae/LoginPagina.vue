@@ -58,7 +58,7 @@ const cumLogin = () => {
   router.replace({
     name:'home'
   })
-}
+};
 
 
 
